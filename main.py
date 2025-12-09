@@ -5824,7 +5824,7 @@ def run_subscription_mode(sub_manager):
 
 def generate_subscription_report(subscription: Dict, news_data: List[Dict]) -> str:
     """
-    为订阅生成报告内容
+    为订阅生成报告内容（使用和之前一样的格式，标题和链接合并）
     
     Args:
         subscription: 订阅配置
@@ -5838,42 +5838,43 @@ def generate_subscription_report(subscription: Dict, news_data: List[Dict]) -> s
     
     # 构建报告
     report = []
-    report.append(f"# 📰 {sub_name}\n\n")
-    report.append(f"🕒 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-    report.append(f"📊 共 {len(news_data)} 条匹配新闻\n")
+    report.append(f"**总新闻数：** {len(news_data)}\n\n\n\n")
     
-    # 关键词信息
-    normal_kws = keywords.get("normal", [])
-    if normal_kws:
-        kw_str = ', '.join(normal_kws[:5])
-        if len(normal_kws) > 5:
-            kw_str += f" 等{len(normal_kws)}个关键词"
-        report.append(f"🔑 关键词: {kw_str}\n")
+    # 关键词信息（可选，如果需要的话）
+    # normal_kws = keywords.get("normal", [])
+    # if normal_kws:
+    #     kw_str = ', '.join(normal_kws[:5])
+    #     if len(normal_kws) > 5:
+    #         kw_str += f" 等{len(normal_kws)}个关键词"
+    #     report.append(f"🔑 关键词: {kw_str}\n\n")
     
-    report.append("\n---\n\n")
-    
-    # 新闻列表
+    # 新闻列表（使用和之前一样的格式）
     for idx, news in enumerate(news_data[:50], 1):  # 最多显示50条
-        title = news.get("title", "无标题")
-        platform = news.get("platform", "未知平台")
-        rank = news.get("rank", 0)
-        url = news.get("url", "")
+        # 构建 format_title_for_platform 需要的数据结构
+        title_data = {
+            "title": news.get("title", "无标题"),
+            "url": news.get("url", ""),
+            "mobile_url": news.get("mobileUrl", news.get("url", "")),
+            "source_name": news.get("platform", "未知平台"),
+            "ranks": news.get("ranks", [news.get("rank", 0)]) if news.get("ranks") else [news.get("rank", 0)],
+            "rank_threshold": 10,  # 默认阈值
+            "time_display": "",  # 订阅模式不显示时间
+            "count": 1,  # 默认出现1次
+            "is_new": False,  # 订阅模式不区分新旧
+        }
         
-        # 格式化排名
-        if rank > 0:
-            rank_str = f"[{rank}]"
-        else:
-            rank_str = ""
+        # 使用 format_title_for_platform 格式化标题（和之前格式一致）
+        formatted_title = format_title_for_platform("wework", title_data, show_source=True)
         
-        report.append(f"{idx}. **[{platform}]** {title} {rank_str}\n")
-        
-        if url:
-            report.append(f"   🔗 {url}\n")
-        
-        report.append("\n")
+        # 添加编号
+        report.append(f"  {idx}. {formatted_title}\n")
     
     if len(news_data) > 50:
-        report.append(f"... 还有 {len(news_data) - 50} 条新闻未显示\n")
+        report.append(f"\n... 还有 {len(news_data) - 50} 条新闻未显示\n")
+    
+    # 添加更新时间（和之前格式一致）
+    now = get_beijing_time()
+    report.append(f"\n\n\n> 更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}")
     
     return "".join(report)
 
