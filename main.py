@@ -5914,12 +5914,21 @@ def generate_subscription_report(subscription: Dict, news_data: List[Dict]) -> s
     # 新闻列表（使用和之前一样的格式）
     for idx, news in enumerate(news_data[:50], 1):  # 最多显示50条
         # 构建 format_title_for_platform 需要的数据结构
+        # 处理排名：只有当 ranks 不为空时才使用，否则不显示排名（避免显示 [0]）
+        news_ranks = news.get("ranks", [])
+        if not news_ranks:
+            # 如果没有 ranks，检查是否有有效的 rank（> 0）
+            news_rank = news.get("rank", 0)
+            if news_rank > 0:
+                news_ranks = [news_rank]
+            # 否则 ranks 保持为空列表，不会显示排名
+        
         title_data = {
             "title": news.get("title", "无标题"),
             "url": news.get("url", ""),
             "mobile_url": news.get("mobileUrl", news.get("url", "")),
             "source_name": news.get("platform", "未知平台"),
-            "ranks": news.get("ranks", [news.get("rank", 0)]) if news.get("ranks") else [news.get("rank", 0)],
+            "ranks": news_ranks,  # 只有有效的排名才会显示
             "rank_threshold": 10,  # 默认阈值
             "time_display": "",  # 订阅模式不显示时间
             "count": 1,  # 默认出现1次
