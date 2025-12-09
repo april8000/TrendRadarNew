@@ -4198,6 +4198,41 @@ def send_to_dingtalk(
     return True
 
 
+# ===== 简易推送封装（多订阅模式用，直接发送字符串） =====
+def send_wework_message(webhook_url: str, content: str) -> None:
+    """企业微信群机器人简单推送（markdown）"""
+    payload = {"msgtype": "markdown", "markdown": {"content": content}}
+    resp = requests.post(webhook_url, json=payload, timeout=15)
+    resp.raise_for_status()
+    data = resp.json()
+    if data.get("errcode") not in (0, None):
+        raise RuntimeError(f"WeWork push failed: {data}")
+
+
+def send_feishu_message(webhook_url: str, content: str) -> None:
+    """飞书群机器人简单推送（text）"""
+    payload = {"msg_type": "text", "content": {"text": content}}
+    resp = requests.post(webhook_url, json=payload, timeout=15)
+    resp.raise_for_status()
+    data = resp.json()
+    code = data.get("code", data.get("StatusCode"))
+    if code not in (0, 200, None):
+        raise RuntimeError(f"Feishu push failed: {data}")
+
+
+def send_dingtalk_message(webhook_url: str, content: str) -> None:
+    """钉钉群机器人简单推送（markdown）"""
+    payload = {
+        "msgtype": "markdown",
+        "markdown": {"title": "通知", "text": content},
+    }
+    resp = requests.post(webhook_url, json=payload, timeout=15)
+    resp.raise_for_status()
+    data = resp.json()
+    if data.get("errcode") not in (0, None):
+        raise RuntimeError(f"Dingtalk push failed: {data}")
+
+
 def strip_markdown(text: str) -> str:
     """去除文本中的 markdown 语法格式，用于个人微信推送"""
 
