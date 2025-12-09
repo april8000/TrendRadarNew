@@ -2,8 +2,8 @@ name: Hot News Crawler (Multi-Subscription)
 
 on:
   schedule:
-    # 我们使用的是 github 官方提供的资源来进行的推送，而每个账号的资源是限额的，为了不被官方判定为滥用而面临封号的风险，不建议比半小时更低
-    - cron: "0 */2 * * *" # 每2小时执行一次，支持多订阅模式
+    # 每天早上8点执行（北京时间，对应UTC 0点）
+    - cron: "0 0 * * *" # 每天UTC 0点执行（北京时间早上8点，UTC+8）
   workflow_dispatch:
 
 # 添加权限设置
