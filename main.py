@@ -5771,6 +5771,14 @@ def run_subscription_mode(sub_manager):
                 continue
             
             print(f"\n   📤 开始推送到 {len(webhooks)} 个webhook...")
+            print(f"   [调试] 订阅 [{sub_name}] 的webhook配置:")
+            for idx, wh in enumerate(webhooks, 1):
+                print(f"      {idx}. {wh.get('name', '未命名')} ({wh.get('type', 'wework')})")
+                # 只显示webhook URL的关键部分（key参数）用于调试
+                url = wh.get("url", "")
+                if "key=" in url:
+                    key_part = url.split("key=")[1].split("&")[0] if "key=" in url else "未找到key"
+                    print(f"         URL key: ...{key_part[-8:]}")  # 显示最后8位
             
             push_success = 0
             push_fail = 0
@@ -5780,8 +5788,14 @@ def run_subscription_mode(sub_manager):
                 webhook_url = webhook.get("url")
                 webhook_type = webhook.get("type", "wework")
                 
+                if not webhook_url:
+                    print(f"      ⚠️ {webhook_name}: webhook URL为空，跳过")
+                    push_fail += 1
+                    continue
+                
                 try:
                     # 发送推送
+                    print(f"      [推送] 正在推送到: {webhook_name} ({webhook_type})")
                     if webhook_type == "wework":
                         send_wework_message(webhook_url, report_content)
                     elif webhook_type == "feishu":
@@ -5793,11 +5807,11 @@ def run_subscription_mode(sub_manager):
                         push_fail += 1
                         continue
                     
-                    print(f"      ✅ {webhook_name}")
+                    print(f"      ✅ {webhook_name} 推送成功")
                     push_success += 1
                     
                 except Exception as e:
-                    print(f"      ❌ {webhook_name}: {str(e)[:50]}")
+                    print(f"      ❌ {webhook_name}: {str(e)[:100]}")
                     push_fail += 1
             
             if push_success > 0:
