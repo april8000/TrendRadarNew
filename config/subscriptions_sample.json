@@ -4,6 +4,7 @@
     {
       "id": "sub_example_001",
       "name": "示例订阅",
+      "emoji": "📰",
       "enabled": true,
       "keywords": {
         "normal": [

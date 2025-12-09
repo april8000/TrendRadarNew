@@ -5845,6 +5845,44 @@ def run_subscription_mode(sub_manager):
     return 0 if fail_count == 0 else 1
 
 
+def get_subscription_emoji(subscription: Dict) -> str:
+    """
+    智能匹配订阅的emoji图标
+    
+    匹配规则：
+    1. 优先使用订阅配置中的 emoji 字段（如果存在）
+    2. 否则基于订阅名称智能匹配：
+       - 包含"养老"/"老年"/"银发" → 👴
+       - 包含"宠物" → 🐱
+       - 包含"医疗"/"健康" → 🏥
+       - 包含"科技"/"AI" → 🤖
+       - 默认 → 📰
+    
+    Args:
+        subscription: 订阅配置字典
+        
+    Returns:
+        emoji字符串
+    """
+    # 优先使用手动配置的emoji
+    if "emoji" in subscription and subscription.get("emoji"):
+        return subscription["emoji"]
+    
+    # 基于订阅名称智能匹配
+    sub_name = subscription.get("name", "").lower()
+    
+    if any(keyword in sub_name for keyword in ["养老", "老年", "银发"]):
+        return "👴"
+    elif "宠物" in sub_name:
+        return "🐱"
+    elif any(keyword in sub_name for keyword in ["医疗", "健康"]):
+        return "🏥"
+    elif any(keyword in sub_name for keyword in ["科技", "ai", "人工智能"]):
+        return "🤖"
+    else:
+        return "📰"
+
+
 def generate_subscription_report(subscription: Dict, news_data: List[Dict]) -> str:
     """
     为订阅生成报告内容（使用和之前一样的格式，标题和链接合并）
@@ -5864,8 +5902,9 @@ def generate_subscription_report(subscription: Dict, news_data: List[Dict]) -> s
     
     # 构建报告
     report = []
-    # 添加订阅名称作为标题
-    report.append(f"# 📰 {sub_name}\n\n")
+    # 添加订阅名称作为标题（使用智能匹配的emoji）
+    emoji = get_subscription_emoji(subscription)
+    report.append(f"# {emoji} {sub_name}\n\n")
     report.append(f"**总新闻数：** {len(news_data)}\n\n\n\n")
     
     # 统计热点词汇（从订阅的关键词中统计在新闻标题中的出现次数）
