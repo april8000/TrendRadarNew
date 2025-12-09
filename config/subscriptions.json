@@ -5,7 +5,7 @@
       {
         "id": "sub_pension_custom",
         "name": "养老资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "保险", "银发", "银发经济",
