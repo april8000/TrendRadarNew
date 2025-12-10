@@ -40,7 +40,7 @@
         },
         "schedule": {
           "enabled": true,
-          "cron": "40 11 * * *",
+          "cron": "0 23 * * *",
           "timezone": "Asia/Shanghai"
         }
       },
@@ -71,7 +71,12 @@
             "type": "wework",
             "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20f1b0e4-18c8-4b8e-a9c5-f1caca3a269b",
             "name": "宠物医疗群"
-          }
+          },
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=ac254eec-4d02-4acd-82ec-d2bdb1a6e7bc",
+            "name": "宠物医疗资讯订阅"
+        }
         ],
         "ai_search": {
           "enabled": true,
@@ -89,7 +94,7 @@
         },
         "schedule": {
           "enabled": true,
-          "cron": "40 11 * * *",
+          "cron": "0 23 * * *",
           "timezone": "Asia/Shanghai"
         }
       },
@@ -130,7 +135,7 @@
         },
         "schedule": {
           "enabled": true,
-          "cron": "0 8 * * *",
+          "cron": "0 23 * * *",
           "timezone": "Asia/Shanghai"
         }
       }

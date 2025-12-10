@@ -2,8 +2,8 @@ name: Hot News Crawler (Multi-Subscription)
 
 on:
   schedule:
-    # 每天北京时间 19:40 执行（UTC 11:40）
-    - cron: "40 11 * * *"
+    # 每天北京时间 07:00 执行（UTC 23:00）
+    - cron: "0 23 * * *"
   workflow_dispatch:
 
 # 添加权限设置
