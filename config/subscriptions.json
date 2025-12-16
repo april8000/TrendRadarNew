@@ -5,7 +5,7 @@
       {
         "id": "sub_pension_custom",
         "name": "养老资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "保险", "银发", "银发经济",
@@ -52,7 +52,7 @@
       {
         "id": "sub_pet_medical",
         "name": "宠物医疗订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "宠物", "宠物保险", "宠物险", "宠物医院",
@@ -105,7 +105,7 @@
       {
         "id": "sub_ai_tech",
         "name": "AI技术资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "AI", "人工智能", "机器学习", "深度学习", "神经网络",
@@ -162,6 +162,11 @@
           {
             "type": "wework",
             "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4b07a9e6-68a2-4713-b72d-f358e5857115",
+            "name": "医美资讯群内部"
+          },
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=86fc3c01-6cb4-41a2-96cb-7bd840d1d200",
             "name": "医美资讯群"
           }
         ],
