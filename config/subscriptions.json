@@ -5,7 +5,7 @@
       {
         "id": "sub_pension_custom",
         "name": "养老资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "保险", "银发", "银发经济",
@@ -26,6 +26,11 @@
           {
             "type": "wework",
             "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4b07a9e6-68a2-4713-b72d-f358e5857115",
+            "name": "养老资讯群"
+          },
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=024d1c8b-a1b9-4ea8-8f59-0283c43fd9db",
             "name": "养老资讯群"
           }
         ],
@@ -79,7 +84,12 @@
             "type": "wework",
             "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20f1b0e4-18c8-4b8e-a9c5-f1caca3a269b",
             "name": "宠物医疗群"
-          }
+          },
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=ac254eec-4d02-4acd-82ec-d2bdb1a6e7bc",
+            "name": "宠物医疗资讯订阅"
+        }
         ],
         "ai_search": {
           "enabled": true,
@@ -111,7 +121,7 @@
       {
         "id": "sub_ai_tech",
         "name": "AI技术资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "AI", "人工智能", "机器学习", "深度学习", "神经网络",
@@ -160,7 +170,7 @@
       {
         "id": "sub_medical_aesthetic",
         "name": "医美资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
            "医美行业","医美项目", "医美项目投诉", "医美投诉", "轻医美",
@@ -177,6 +187,11 @@
             "type": "wework",
             "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4b07a9e6-68a2-4713-b72d-f358e5857115",
             "name": "医美资讯群内部"
+          },
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=86fc3c01-6cb4-41a2-96cb-7bd840d1d200",
+            "name": "医美资讯群"
           }
         ],
         "ai_search": {
