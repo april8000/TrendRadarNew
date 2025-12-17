@@ -5692,14 +5692,39 @@ def fetch_xhs_hot_posts(keyword: str, limit: int, xhs_config: Dict) -> List[Dict
         print(f"   ⚠️ 调用小红书接口失败: {str(e)[:100]}")
         return []
 
-    # 根据实际返回结构进行字段映射，这里做通用兼容
-    posts = []
-    items = data if isinstance(data, list) else data.get("data") or data.get("items") or []
+    # 根据实际返回结构进行字段映射
+    # 你的接口示例：
+    # {
+    #   "success": true,
+    #   "data": { "articles": [ { "title": "...", "content": "...", "likes": 42, "link": "..." }, ... ] },
+    #   "message": "..."
+    # }
+    posts: List[Dict] = []
+
+    items: List[Dict] = []
+    if isinstance(data, list):
+        items = data
+    elif isinstance(data, dict):
+        inner = data.get("data")
+        # 优先从 data.articles 读取
+        if isinstance(inner, dict) and isinstance(inner.get("articles"), list):
+            items = inner.get("articles", [])
+        else:
+            # 兼容备用结构：data 本身是列表 或包含 items 字段
+            if isinstance(inner, list):
+                items = inner
+            else:
+                maybe_items = data.get("items")
+                if isinstance(maybe_items, list):
+                    items = maybe_items
+
     for item in items:
+        if not isinstance(item, dict):
+            continue
         # 兼容不同字段名
         note_id = item.get("id") or item.get("note_id") or item.get("noteId")
         url = item.get("url") or item.get("link") or ""
-        title = item.get("title") or item.get("desc") or ""
+        title = item.get("title") or item.get("desc") or item.get("content") or ""
         likes = item.get("likes") or item.get("liked_count") or item.get("like_count")
         posts.append(
             {
