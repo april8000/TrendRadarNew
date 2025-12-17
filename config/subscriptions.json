@@ -5,7 +5,7 @@
       {
         "id": "sub_pension_custom",
         "name": "养老资讯订阅",
-        "enabled": true,
+        "enabled": false,
         "keywords": {
           "normal": [
             "保险", "银发", "银发经济",
@@ -102,8 +102,8 @@
         "xhs": {
           "enabled": true,
           "keywords": ["宠物险", "宠物医疗"],
-          "limit": 20,
-          "push_limit": 10,
+          "limit": 3,
+          "push_limit": 3,
           "history_days": 15,
           "section_title": "小红书热帖（宠物医疗）"
         }
@@ -111,7 +111,7 @@
       {
         "id": "sub_ai_tech",
         "name": "AI技术资讯订阅",
-        "enabled": true,
+        "enabled": false,
         "keywords": {
           "normal": [
             "AI", "人工智能", "机器学习", "深度学习", "神经网络",
@@ -160,7 +160,7 @@
       {
         "id": "sub_medical_aesthetic",
         "name": "医美资讯订阅",
-        "enabled": true,
+        "enabled": false,
         "keywords": {
           "normal": [
            "医美行业","医美项目", "医美项目投诉", "医美投诉", "轻医美",

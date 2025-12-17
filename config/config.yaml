@@ -79,7 +79,7 @@ ai_search:
 xhs:
   enabled: true
   base_url: "http://118.26.39.96:18060/api/v1/feeds/search/details"
-  timeout_seconds: 15
+  timeout_seconds: 240
   default_limit: 20
 
 platforms:
