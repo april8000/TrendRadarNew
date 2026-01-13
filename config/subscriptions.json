@@ -5,7 +5,7 @@
       {
         "id": "sub_pension_custom",
         "name": "养老资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "保险", "银发", "银发经济",
@@ -60,7 +60,7 @@
       {
         "id": "sub_pet_medical",
         "name": "宠物医疗订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "宠物", "宠物保险", "宠物险", "宠物医院",
@@ -121,7 +121,7 @@
       {
         "id": "sub_ai_tech",
         "name": "AI技术资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "AI", "人工智能", "机器学习", "深度学习", "神经网络",
@@ -170,7 +170,7 @@
       {
         "id": "sub_medical_aesthetic",
         "name": "医美资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
            "医美行业","医美项目", "医美项目投诉", "医美投诉", "轻医美",
@@ -228,10 +228,15 @@
             "网络安全", "电子账户", "游戏开发", "游戏账户交易"
           ],
           "required": [],
-          "excluded": []，
+          "excluded": [],
           "limit": 0
         },
         "webhooks": [
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=23d87180-3dbc-4e71-a82b-dc77ec89de51",
+            "name": "新质生产力资讯群"
+          },
           {
             "type": "wework",
             "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=6e2c4e3b-1641-4085-b5f0-09f2adaae293",
