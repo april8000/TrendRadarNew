@@ -228,7 +228,7 @@
             "网络安全", "电子账户", "游戏开发", "游戏账户交易"
           ],
           "required": [],
-          "excluded": [],
+          "excluded": []，
           "limit": 0
         },
         "webhooks": [
