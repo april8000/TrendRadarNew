@@ -3,6 +3,271 @@
   "description": "TrendRadar多订阅配置文件",
   "subscriptions": [
     {
+      "id": "sub_pension_custom",
+      "name": "养老资讯订阅",
+      "enabled": true,
+      "keywords": {
+        "normal": [
+          "保险", "银发", "银发经济",
+          "养老", "养老保险", "商业养老保险", "养老金", "养老年金", "个人养老金",
+          "退休", "退休金", "退休规划", "延迟退休", "退休年龄", "养老待遇", "养老保障", "养老体系",
+          "养老规划", "养老储蓄", "养老投资", "养老理财", "养老基金",
+          "养老服务", "养老产业", "养老院", "养老机构",
+          "老年", "老年人", "老龄", "老龄化",
+          "护理保险", "失能保险", "长护险",
+          "智慧养老", "康养社区", "医养结合", "适老化", "适老改造",
+          "老年消费", "银发族", "中老年"
+        ],
+        "required": [],
+        "excluded": [],
+        "limit": 0
+      },
+      "webhooks": [
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4b07a9e6-68a2-4713-b72d-f358e5857115",
+          "name": "养老资讯群"
+        },
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=024d1c8b-a1b9-4ea8-8f59-0283c43fd9db",
+          "name": "养老资讯群"
+        }
+      ],
+      "ai_search": {
+        "enabled": true,
+        "trigger_threshold": 5,
+        "search_keywords": [
+          "养老保险政策", "养老金调整", "智慧养老", "医养结合"
+        ],
+        "time_range_hours": 24,
+        "max_results": 30
+      },
+      "schedule": {
+        "enabled": true,
+        "cron": "0 23 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "xhs": {
+        "enabled": true,
+        "keywords": ["商业养老保险", "养老保险"],
+        "limit": 5,
+        "push_limit": 5,
+        "history_days": 15,
+        "section_title": "小红书热帖（养老）"
+      }
+    },
+    {
+      "id": "sub_pet_medical",
+      "name": "宠物医疗订阅",
+      "enabled": true,
+      "keywords": {
+        "normal": [
+          "宠物", "宠物保险", "宠物险", "宠物医院",
+          "宠物医生", "宠物服务",
+          "遛狗员责任险", "上门喂养责任险",
+          "宠物急诊", "宠物健康", "宠物体检",
+          "宠物疫苗", "宠物驱虫", "宠物慢性病",
+          "宠物康复护理", "宠物临终关怀", "兽医", "动物医院",
+          "宠物医疗", "宠物健康", "宠物诊疗", "宠物疾病", "宠物医疗资讯",
+          "宠物理赔", "宠物报案",
+          "宠物医疗服务", "宠物健康管理", "宠物护理", "宠物诊所", "宠物医院连锁",
+          "宠物药品", "宠物营养", "宠物康养", "宠物康复",
+          "宠物消费", "宠物产业", "宠物经济", "伴侣动物医疗"
+        ],
+        "required": [],
+        "excluded": [],
+        "limit": 0
+      },
+      "webhooks": [
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=20f1b0e4-18c8-4b8e-a9c5-f1caca3a269b",
+          "name": "宠物医疗群"
+        },
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=ac254eec-4d02-4acd-82ec-d2bdb1a6e7bc",
+          "name": "宠物医疗资讯订阅"
+        }
+      ],
+      "ai_search": {
+        "enabled": true,
+        "trigger_threshold": 5,
+        "search_keywords": [
+          "宠物", "宠物险", "宠物医疗", "宠物服务",
+          "宠物疫苗", "宠物医疗投融资", "宠物医疗趋势",
+          "宠物急诊", "宠物健康", "宠物住院", "宠物重疾", "宠物慢性病", "宠物癌症", "宠物健康", "宠物诊疗", "宠物医院", "兽医",
+          "宠物医疗服务", "宠物健康管理", "宠物护理", "宠物诊所", "宠物医院连锁",
+          "pet insurance", "veterinary insurance", "companion animal insurance"
+        ],
+        "time_range_hours": 24,
+        "max_results": 30
+      },
+      "schedule": {
+        "enabled": true,
+        "cron": "10 23 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "xhs": {
+        "enabled": true,
+        "keywords": ["宠物险", "宠物医疗"],
+        "limit": 5,
+        "push_limit": 5,
+        "history_days": 15,
+        "section_title": "小红书热帖（宠物医疗）"
+      }
+    },
+    {
+      "id": "sub_ai_tech",
+      "name": "AI技术资讯订阅",
+      "enabled": true,
+      "keywords": {
+        "normal": [
+          "AI", "人工智能", "机器学习", "深度学习", "神经网络",
+          "大模型", "LLM", "GPT", "Claude", "Gemini", "文心一言",
+          "开源项目", "GitHub", "开源工具", "开源框架",
+          "AI前沿", "AI技术", "AI应用", "AI创新",
+          "Transformer", "BERT", "ChatGPT", "Copilot",
+          "AI开发", "AI编程", "AI算法", "AI研究",
+          "计算机视觉", "自然语言处理", "NLP", "CV",
+          "AI工具", "AI平台", "AI服务", "AI产品"
+        ],
+        "required": [],
+        "excluded": [],
+        "limit": 0
+      },
+      "webhooks": [
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=c4aa29d6-db3f-43c5-a974-af2067e2bd8d",
+          "name": "AI资讯群"
+        }
+      ],
+      "ai_search": {
+        "enabled": true,
+        "trigger_threshold": 5,
+        "search_keywords": [
+          "AI", "AI开源项目", "人工智能", "机器学习开源"
+        ],
+        "time_range_hours": 24,
+        "max_results": 30
+      },
+      "schedule": {
+        "enabled": true,
+        "cron": "0 23 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "xhs": {
+        "enabled": false,
+        "keywords": ["AI", "人工智能"],
+        "limit": 20,
+        "push_limit": 10,
+        "history_days": 15,
+        "section_title": "小红书热帖（AI）"
+      }
+    },
+    {
+      "id": "sub_medical_aesthetic",
+      "name": "医美资讯订阅",
+      "enabled": true,
+      "keywords": {
+        "normal": [
+          "医美行业", "医美项目", "医美项目投诉", "医美投诉", "轻医美",
+          "医美人群", "赴韩医美", "赴韩医美项目", "赴韩医美痛点", "赴韩医美需求",
+          "赴韩医美人群", "赴韩医美人数",
+          "医美保险", "医美保险责任", "医美保险价格", "医美保险痛点"
+        ],
+        "required": [],
+        "excluded": [],
+        "limit": 0
+      },
+      "webhooks": [
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4b07a9e6-68a2-4713-b72d-f358e5857115",
+          "name": "医美资讯群内部"
+        },
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=86fc3c01-6cb4-41a2-96cb-7bd840d1d200",
+          "name": "医美资讯群"
+        }
+      ],
+      "ai_search": {
+        "enabled": true,
+        "trigger_threshold": 5,
+        "search_keywords": [
+          "医美", "医美保险", "医美投诉", "轻医美",
+          "赴韩医美", "医美保险"
+        ],
+        "time_range_hours": 24,
+        "max_results": 30
+      },
+      "schedule": {
+        "enabled": true,
+        "cron": "20 23 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "xhs": {
+        "enabled": true,
+        "keywords": ["医美保险"],
+        "limit": 5,
+        "push_limit": 5,
+        "history_days": 15,
+        "section_title": "小红书热帖（医美）"
+      }
+    },
+    {
+      "id": "sub_new_productivity",
+      "name": "新质生产力（原新能源）订阅",
+      "enabled": true,
+      "keywords": {
+        "normal": [
+          "低空经济", "无人机", "充电桩", "光伏",
+          "网络安全", "电子账户", "游戏开发", "游戏账户交易"
+        ],
+        "required": [],
+        "excluded": [],
+        "limit": 0
+      },
+      "webhooks": [
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=23d87180-3dbc-4e71-a82b-dc77ec89de51",
+          "name": "新质生产力资讯群"
+        },
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=6e2c4e3b-1641-4085-b5f0-09f2adaae293",
+          "name": "内部新质生产力资讯群"
+        }
+      ],
+      "ai_search": {
+        "enabled": true,
+        "trigger_threshold": 5,
+        "search_keywords": [
+          "低空经济", "无人机", "充电桩", "光伏",
+          "网络安全", "电子账户", "游戏开发", "游戏账户交易"
+        ],
+        "time_range_hours": 24,
+        "max_results": 30
+      },
+      "schedule": {
+        "enabled": true,
+        "cron": "30 23 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "xhs": {
+        "enabled": true,
+        "keywords": ["低空经济", "无人机", "充电桩", "光伏"],
+        "limit": 5,
+        "push_limit": 5,
+        "history_days": 15,
+        "section_title": "小红书热帖（新质生产力）"
+      }
+    },
+    {
       "id": "sub_lifestyle",
       "name": "生活服务订阅",
       "enabled": true,
@@ -34,7 +299,7 @@
       },
       "schedule": {
         "enabled": true,
-        "cron": "30 23 * * *",
+        "cron": "40 23 * * *",
         "timezone": "Asia/Shanghai"
       },
       "xhs": {
