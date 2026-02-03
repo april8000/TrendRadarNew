@@ -464,6 +464,7 @@ def search_pension_news_with_ai(config: Dict) -> List[Dict]:
     """
     try:
         ai_config = config.get("AI_SEARCH", {})
+        print(ai_config)
         
         # 检查是否启用
         if not ai_config.get("ENABLED", False):
