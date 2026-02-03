@@ -121,7 +121,7 @@
       {
         "id": "sub_ai_tech",
         "name": "AI技术资讯订阅",
-        "enabled": true,
+        "enabled": false,
         "keywords": {
           "normal": [
             "AI", "人工智能", "机器学习", "深度学习", "神经网络",
@@ -266,7 +266,51 @@
           "history_days": 15,
           "section_title": "小红书热帖（新质生产力）"
         }
+      },
+    {
+      "id": "sub_lifestyle",
+      "name": "生活服务订阅",
+      "enabled": true,
+      "keywords": {
+        "normal": [
+          "上门服务", "上门家政", "上门保洁", "家政保洁",
+          "洗衣洗鞋", "上门洗涤", "本地生活", "生活服务",
+          "上门维修", "上门宠物服务"
+        ],
+        "required": [],
+        "excluded": [],
+        "limit": 0
+      },
+      "webhooks": [
+        {
+          "type": "wework",
+          "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4b07a9e6-68a2-4713-b72d-f358e5857115",
+          "name": "生活服务资讯群内部"
+        } 
+      ],
+      "ai_search": {
+        "enabled": true,
+        "trigger_threshold": 5,
+        "search_keywords": [
+          "上门服务", "上门家政", "本地生活", "家政保洁"
+        ],
+        "time_range_hours": 24,
+        "max_results": 30
+      },
+      "schedule": {
+        "enabled": true,
+        "cron": "40 23 * * *",
+        "timezone": "Asia/Shanghai"
+      },
+      "xhs": {
+        "enabled": true,
+        "keywords": ["上门家政", "上门保洁", "家政保洁"],
+        "limit": 5,
+        "push_limit": 5,
+        "history_days": 15,
+        "section_title": "小红书热帖（生活服务）"
       }
+    }
     ],
     "global_settings": {
       "report_mode": "incremental",
