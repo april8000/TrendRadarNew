@@ -266,6 +266,119 @@
           "history_days": 15,
           "section_title": "小红书热帖（新质生产力）"
         }
+      },
+      {
+        "id": "sub_life_service",
+        "name": "生活服务订阅",
+        "enabled": true,
+        "keywords": {
+          "normal": [
+            "上门服务", "上门家政", "上门保洁", "家政保洁",
+            "洗衣洗鞋", "上门洗涤", "本地生活", "生活服务",
+            "上门维修", "上门宠物服务"
+          ],
+          "required": [],
+          "excluded": [],
+          "limit": 0
+        },
+        "webhooks": [
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=a330606f-d3c9-4f12-958b-f362059e28f6",
+            "name": "生活服务群"
+          },
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4b07a9e6-68a2-4713-b72d-f358e5857115",
+            "name": "生活服务资讯群"
+          }
+        ],
+        "ai_search": {
+          "enabled": true,
+          "trigger_threshold": 5,
+          "search_keywords": [
+            "上门服务", "家政保洁", "本地生活", "上门维修",
+            "生活服务趋势", "家政服务", "洗涤服务"
+          ],
+          "time_range_hours": 24,
+          "max_results": 30
+        },
+        "schedule": {
+          "enabled": true,
+          "cron": "40 23 * * *",
+          "timezone": "Asia/Shanghai"
+        },
+        "xhs": {
+          "enabled": true,
+          "keywords": ["上门服务", "家政保洁", "本地生活"],
+          "limit": 5,
+          "push_limit": 5,
+          "history_days": 15,
+          "section_title": "小红书热帖（生活服务）"
+        }
+      },
+      {
+        "id": "sub_ai_tech",
+        "name": "AI前端科技资讯订阅",
+        "enabled": true,
+        "keywords": {
+          "normal": [
+            "Vue", "React", "Angular", "Svelte", "SolidJS", "Next.js", "Nuxt.js",
+            "SSR", "SSG", "ISR", "边缘渲染", "微前端", "Web Components",
+            "WebAssembly", "WebGPU", "WebGL", "Canvas", "Three.js",
+            "FCP", "LCP", "Core Web Vitals",
+            "AI代码生成", "自然语言转UI", "Figma转代码", "前端Agent",
+            "低代码AI", "WebLLM", "ONNX Runtime Web",
+            "Vite", "Webpack", "Rollup", "ESBuild",
+            "Playwright", "Cypress", "Zod",
+            "Go", "Rust", "Python", "Node.js", "Spring Boot", "Gin", "FastAPI", "NestJS",
+            "K8s", "Docker", "Serverless", "微服务", "Service Mesh", "Istio", "Knative",
+            "PostgreSQL", "MySQL", "MongoDB", "Redis", "ClickHouse", "向量数据库",
+            "Pinecone", "Milvus", "AI API网关", "MLOps", "模型服务化",
+            "自动API生成", "智能运维", "预测性扩缩容",
+            "Kafka", "RabbitMQ", "Nginx", "Envoy", "gRPC", "GraphQL",
+            "LLM", "大语言模型", "多模态大模型", "视频生成模型", "Sora", "Seedance",
+            "世界模型", "生成式AI", "AI Agent", "具身智能", "端侧AI", "小模型",
+            "MoE", "RAG", "微调", "Prompt工程", "Transformer", "Diffusion",
+            "LoRA", "QLoRA", "量化", "蒸馏", "推理优化", "AI安全", "AI伦理",
+            "AI编程", "AIGC", "AI诊断", "智能体", "数字孪生", "脑机接口", "合成数据"
+          ],
+          "required": [],
+          "excluded": [],
+          "limit": 0
+        },
+        "webhooks": [
+          {
+            "type": "wework",
+            "url": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=4630d2e2-15fa-47a7-ab55-5c3330164c05",
+            "name": "AI前端科技资讯群"
+          }
+        ],
+        "ai_search": {
+          "enabled": true,
+          "trigger_threshold": 5,
+          "search_keywords": [
+            "AI前端", "前端框架", "Next.js", "Vue", "React",
+            "LLM", "大模型", "AI Agent", "AIGC",
+            "WebAssembly", "WebGPU", "Vite",
+            "生成式AI", "AI编程", "RAG"
+          ],
+          "time_range_hours": 24,
+          "max_results": 30
+        },
+        "schedule": {
+          "enabled": true,
+          "cron": "50 23 * * *",
+          "timezone": "Asia/Shanghai"
+        },
+        "xhs": {
+          "enabled": false,
+          "keywords": ["AI", "前端", "科技"],
+          "limit": 5,
+          "push_limit": 5,
+          "history_days": 15,
+          "section_title": "小红书热帖（AI科技）"
+        }
       }
     ],
     "global_settings": {
