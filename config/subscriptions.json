@@ -5,7 +5,7 @@
       {
         "id": "sub_pension_custom",
         "name": "养老资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "保险", "银发", "银发经济",
@@ -60,7 +60,7 @@
       {
         "id": "sub_pet_medical",
         "name": "宠物医疗订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "宠物", "宠物保险", "宠物险", "宠物医院",
@@ -121,7 +121,7 @@
       {
         "id": "sub_ai_tech",
         "name": "AI技术资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "AI", "人工智能", "机器学习", "深度学习", "神经网络",
@@ -170,7 +170,7 @@
       {
         "id": "sub_medical_aesthetic",
         "name": "医美资讯订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
            "医美行业","医美项目", "医美项目投诉", "医美投诉", "轻医美",
@@ -221,7 +221,7 @@
       {
         "id": "sub_new_productivity",
         "name": "新质生产力（原新能源）订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "低空经济", "无人机", "充电桩", "光伏",
@@ -270,7 +270,7 @@
       {
         "id": "sub_life_service",
         "name": "生活服务订阅",
-        "enabled": false,
+        "enabled": true,
         "keywords": {
           "normal": [
             "上门服务", "上门家政", "上门保洁", "家政保洁",
