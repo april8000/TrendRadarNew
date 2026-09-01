@@ -7,6 +7,8 @@ import re
 import time
 import webbrowser
 import smtplib
+import sys
+import io
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.header import Header
@@ -18,6 +20,10 @@ from typing import Dict, List, Tuple, Optional, Union
 import pytz
 import requests
 import yaml
+
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 # 清除代理环境变量，避免代理问题导致网络请求失败
 os.environ.pop('HTTP_PROXY', None)
